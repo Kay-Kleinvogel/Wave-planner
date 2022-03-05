@@ -24,17 +24,14 @@ const InputForm = () => {
   // onChange handler for inputs
   const changeWaveCount = (e: React.ChangeEvent<HTMLInputElement>) => {
     setWaveCount(parseInt(e.target.value));
-    console.log(waveCount);
   };
 
   const changeWaveDuration = (e: React.ChangeEvent<HTMLInputElement>) => {
     setWaveDuration(parseInt(e.target.value));
-    console.log(waveDuration);
   };
 
   const changeStartDate = (e: React.ChangeEvent<HTMLInputElement>) => {
     setStartDate(Date.parse(e.target.value));
-    console.log(new Date(startDate));
   };
 
   const submitData = (e: React.ChangeEvent<HTMLFormElement>) => {
@@ -76,7 +73,7 @@ const InputForm = () => {
 
   const logWaves = (waves: Array<IWave>) => {
     waves.forEach((wave, i) => {
-      const waveCount = i;
+      const waveCount = i + 1;
       const startDate = new Date(wave.startDate).toDateString();
       const endDate = new Date(wave.endDate).toDateString();
       console.log(`Wave ${waveCount}: ${startDate} until ${endDate}.`);
