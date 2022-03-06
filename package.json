@@ -2,7 +2,7 @@
   "name": "wave-scheduler",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://Kay-Kleinvogel.github.io/wave-planner/",
+  "homepage": "https://kay-kleinvogel.github.io/Wave-planner/",
   "dependencies": {
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
