@@ -8,15 +8,10 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
+import { IWave } from "../../interfaces/IWave";
 import WaveDisplay from "../WaveDisplay/WaveDisplay";
 
 const InputForm = () => {
-  // interfaces
-  interface IWave {
-    startDate: number;
-    endDate: number;
-  }
-
   const placeholderPlan: Array<IWave> = [{ startDate: 0, endDate: 0 }];
 
   // handle the state of the form
@@ -142,7 +137,7 @@ const InputForm = () => {
           </Box>
         </CardContent>
       </Card>
-      {isWavePlanSet && <WaveDisplay />}
+      {isWavePlanSet && <WaveDisplay waves={wavePlan} />}
     </Container>
   );
 };
