@@ -8,18 +8,23 @@ import {
   Typography,
 } from "@mui/material";
 import React, { useState } from "react";
+import WaveDisplay from "../WaveDisplay/WaveDisplay";
 
 const InputForm = () => {
-  // handle the state of the form
-  const [startDate, setStartDate] = useState(Date.now());
-  const [waveDuration, setWaveDuration] = useState(1);
-  const [waveCount, setWaveCount] = useState(1);
-
   // interfaces
   interface IWave {
     startDate: number;
     endDate: number;
   }
+
+  const placeholderPlan: Array<IWave> = [{ startDate: 0, endDate: 0 }];
+
+  // handle the state of the form
+  const [startDate, setStartDate] = useState(Date.now());
+  const [waveDuration, setWaveDuration] = useState(1);
+  const [waveCount, setWaveCount] = useState(1);
+  const [wavePlan, setWavePlan] = useState(placeholderPlan);
+  const [isWavePlanSet, setIsWavePlanSet] = useState(false);
 
   // onChange handler for inputs
   const changeWaveCount = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -62,6 +67,8 @@ const InputForm = () => {
         waves.push(wave);
       }
     }
+    setWavePlan(waves);
+    setIsWavePlanSet(true);
     logWaves(waves);
   };
 
@@ -135,6 +142,7 @@ const InputForm = () => {
           </Box>
         </CardContent>
       </Card>
+      {isWavePlanSet && <WaveDisplay />}
     </Container>
   );
 };
