@@ -1,5 +1,13 @@
-import { Card, CardContent, Typography } from "@mui/material";
-import React from "react";
+import {
+  Card,
+  CardContent,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from "@mui/material";
 import { IWave } from "../../interfaces/IWave";
 
 interface props {
@@ -11,17 +19,27 @@ const WaveDisplay = ({ waves }: props) => {
     <Card>
       <CardContent>
         <Typography variant='h5'>Wave Plan</Typography>
-        <Typography variant='body1'>
-          {waves.map((wave: IWave, index: number) => {
-            return (
-              <div key={index}>
-                Wave {index + 1}:{" "}
-                {new Date(wave.startDate).toLocaleDateString()} until{" "}
-                {new Date(wave.endDate).toLocaleDateString()}
-              </div>
-            );
-          })}
-        </Typography>
+        <TableContainer>
+          <TableHead>
+            <TableCell>Wave Name</TableCell>
+            <TableCell>Start Date</TableCell>
+            <TableCell>End Date</TableCell>
+          </TableHead>
+          <TableBody>
+            {waves.map((wave, i) => {
+              const waveCount = i + 1;
+              const startDate = new Date(wave.startDate).toLocaleDateString();
+              const endDate = new Date(wave.endDate).toLocaleDateString();
+              return (
+                <TableRow key={waveCount}>
+                  <TableCell>{wave.waveName}</TableCell>
+                  <TableCell>{startDate}</TableCell>
+                  <TableCell>{endDate}</TableCell>
+                </TableRow>
+              );
+            })}
+          </TableBody>
+        </TableContainer>
       </CardContent>
     </Card>
   );

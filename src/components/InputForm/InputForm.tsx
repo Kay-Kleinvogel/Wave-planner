@@ -12,7 +12,9 @@ import { IWave } from "../../interfaces/IWave";
 import WaveDisplay from "../WaveDisplay/WaveDisplay";
 
 const InputForm = () => {
-  const placeholderPlan: Array<IWave> = [{ startDate: 0, endDate: 0 }];
+  const placeholderPlan: Array<IWave> = [
+    { waveName: "", startDate: 0, endDate: 0 },
+  ];
 
   // handle the state of the form
   const [startDate, setStartDate] = useState(Date.now());
@@ -49,6 +51,7 @@ const InputForm = () => {
     for (let i = 0; i < waveCount; i++) {
       if (i === 0) {
         const wave: IWave = {
+          waveName: `Wave ${i + 1}`,
           startDate: startDate,
           endDate: addWeeks(startDate, waveDuration).getTime(),
         };
@@ -56,6 +59,7 @@ const InputForm = () => {
       } else {
         const lastWave = waves.slice(-1)[0];
         const wave: IWave = {
+          waveName: `Wave ${i + 1}`,
           startDate: lastWave.endDate,
           endDate: addWeeks(lastWave.endDate, waveDuration).getTime(),
         };
@@ -105,6 +109,7 @@ const InputForm = () => {
                   InputLabelProps={{
                     shrink: true,
                   }}
+                  margin='normal'
                 />
               </div>
 
@@ -119,6 +124,7 @@ const InputForm = () => {
                   InputLabelProps={{
                     shrink: true,
                   }}
+                  margin='normal'
                 />
                 <TextField
                   required
@@ -130,6 +136,7 @@ const InputForm = () => {
                   InputLabelProps={{
                     shrink: true,
                   }}
+                  margin='normal'
                 />
               </div>
               <Button type='submit'>Create Planning</Button>
