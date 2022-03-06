@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/wave-planner/static/css/main.e6c13ad2.css",
+    "main.js": "/wave-planner/static/js/main.a949ccec.js",
+    "static/js/787.4aaf4ba6.chunk.js": "/wave-planner/static/js/787.4aaf4ba6.chunk.js",
+    "index.html": "/wave-planner/index.html",
+    "main.e6c13ad2.css.map": "/wave-planner/static/css/main.e6c13ad2.css.map",
+    "main.a949ccec.js.map": "/wave-planner/static/js/main.a949ccec.js.map",
+    "787.4aaf4ba6.chunk.js.map": "/wave-planner/static/js/787.4aaf4ba6.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.a949ccec.js"
+  ]
+}
