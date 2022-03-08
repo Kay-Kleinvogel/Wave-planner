@@ -38,7 +38,10 @@ const InputForm = () => {
 
   const submitData = (e: React.ChangeEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createWaves(startDate, waveCount, waveDuration);
+
+    checkInputValidity()
+      ? createWaves(startDate, waveCount, waveDuration)
+      : alert("Inputs invalid");
   };
 
   // utility functions
@@ -75,6 +78,10 @@ const InputForm = () => {
     const date = new Date(startDate);
     date.setDate(date.getDate() + weeksAdded * 7);
     return date;
+  };
+
+  const checkInputValidity = (): boolean => {
+    return waveCount > 0 && waveDuration >= 0;
   };
 
   const logWaves = (waves: Array<IWave>) => {
@@ -125,7 +132,14 @@ const InputForm = () => {
                     shrink: true,
                   }}
                   margin='normal'
+                  error={!(waveCount > 0)}
+                  helperText={
+                    !(waveCount > 0) &&
+                    "The number of waves has to be positive."
+                  }
                 />
+              </div>
+              <div>
                 <TextField
                   required
                   id='outlined-number'
@@ -137,6 +151,10 @@ const InputForm = () => {
                     shrink: true,
                   }}
                   margin='normal'
+                  error={!(waveDuration > 0)}
+                  helperText={
+                    !(waveDuration > 0) && "Duration has to be greater than 0."
+                  }
                 />
               </div>
               <Button type='submit'>Create Planning</Button>
