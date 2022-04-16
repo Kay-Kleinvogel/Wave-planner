@@ -9,6 +9,7 @@ import {
 } from "@mui/material";
 import React, { useState } from "react";
 import { IWave } from "../../interfaces/IWave";
+import AppMenuBar from "../AppBar/AppMenuBar";
 import WaveDisplay from "../WaveDisplay/WaveDisplay";
 
 const InputForm = () => {
@@ -95,6 +96,7 @@ const InputForm = () => {
 
   return (
     <Container>
+      <AppMenuBar />
       <Card variant='outlined'>
         <CardContent>
           <Typography gutterBottom variant='h5' component='div'>
