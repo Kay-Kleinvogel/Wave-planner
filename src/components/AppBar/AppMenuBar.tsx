@@ -12,7 +12,7 @@ const AppMenuBar = () => {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position='static' onClick={navigateHome}>
         <Toolbar>
-          <Typography>Porject Scheduler</Typography>
+          <Typography>Project Scheduler</Typography>
         </Toolbar>
       </AppBar>
     </Box>
