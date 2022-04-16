@@ -1,7 +1,20 @@
 import { Button, Container, Stack, Typography } from "@mui/material";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const MethodChooser = () => {
+  const navigate = useNavigate();
+
+  const navigateToWavePlanner = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    navigate("/wave-planner");
+  };
+
+  const navigateToSprintPlanner = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    navigate("/wave-planner");
+  };
+
   return (
     <Container maxWidth='md'>
       <Typography variant='h1'>Agile Project Scheduler</Typography>
@@ -27,7 +40,8 @@ const MethodChooser = () => {
           <Typography variant='body1'>
             A sprint-based approach, following agile principles. Here the
             project is split into 2-week sprints that are then used to finish
-            functionality in order to progress the final product.
+            functionality in order to progress the final product. For this the
+            SAFe structure is used with it's PIs and sprints.
           </Typography>
         </li>
       </ul>
@@ -39,8 +53,12 @@ const MethodChooser = () => {
         Which project type do you plan?
       </Typography>
       <Stack spacing={2} direction='row'>
-        <Button variant='contained'>Wave-based Project</Button>
-        <Button variant='contained'>Sprint-based Project</Button>
+        <Button variant='contained' onClick={navigateToWavePlanner}>
+          Wave-based Project
+        </Button>
+        <Button variant='contained' onClick={navigateToSprintPlanner}>
+          SAFe-based Project
+        </Button>
       </Stack>
     </Container>
   );
